@@ -313,7 +313,7 @@ Matrix Matrix::operator*(Matrix &m2) noexcept(false)
 }
 
 // operator wyjścia służący do wypisywania macierzy
-void operator<<(ofstream &file, Matrix &macierz)
+void operator<<(ofstream &file, Matrix &macierz) noexcept(false)
 {
     int rows = macierz.rows();
     int cols = macierz.cols();
@@ -391,7 +391,7 @@ bool Matrix::operator!=(Matrix &m)
 }
 
 //operator [] wypisanie wiersza o indeksie
-void Matrix::operator[](int row_index)
+void Matrix::operator[](int row_index) noexcept(false)
 {
     if (row_index >= row && row_index < 0)
     {
