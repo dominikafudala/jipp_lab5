@@ -23,6 +23,8 @@ class Matrix{
         Matrix operator-(Matrix &m2) noexcept(false); // odejmowanie dwóch macierzy
         Matrix operator*(Matrix &m2) noexcept(false); // mnożenie dwóch macierzy
         friend void operator<<(ofstream& file, Matrix &macierz); // operator wyjścia służący do wypisywania macierzy
+        bool operator==( Matrix & m );//porównywanie
+        bool operator!=( Matrix & m );
         void store(string filename, string path) noexcept(false); // zapisywanie do pliku
         ~Matrix(); // destruktor
 

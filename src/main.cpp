@@ -6,8 +6,8 @@ using namespace std;
 int main(){
 
     while(1){
-        cout<<"1 - macierz niekwadratowa(zaprezentowane operatory: +  -  *  << )"<<endl;
-        cout<<"2 - stworz macierz kwadratowa(zaprezentowane metody get, subtract, multiply, print) "<<endl;
+        cout<<"1 - zaprezentowane operatory: +  -  *  << "<<endl;
+        cout<<"2 - zaprezentowane operatory: == != [] "<<endl;
         cout<<"3 - wczytaj macierz z pliku"<<endl;
         cout<<"4 - zakoncz program"<<endl;
 
@@ -56,23 +56,15 @@ int main(){
                 break;
                 }
             case 2: {
-                Matrix kwadratowa(4);
-                kwadratowa.print();
-                kwadratowa.set(1, 3, 2.2);
-                kwadratowa.print();
-                cout<<"Pobieranie elementu 1x3"<<endl;
-                double element = kwadratowa.get(1, 3);
-                cout<<"Element ten to: "<<element<<endl;
-                cout<<"Tworzymy macierz która nam posłuży do odejmowania i mnożenia: "<<endl;
-                Matrix dzialania(4);
-                dzialania.set(0,0,3);
-                dzialania.set(1,3,2);
-                dzialania.set(3, 3, 2.2);
-                dzialania.print();
-                cout<<"Wynik odejmowania: "<<endl;
-                //kwadratowa.subtract(dzialania).print();
-                cout<<"Wynik mnozenia: "<<endl;
-                //kwadratowa.multiply(dzialania).print();
+                Matrix porownaj(4);
+                Matrix porownaj2(4);
+                Matrix porownaj3(3);
+                bool wynik1 = porownaj==porownaj2;
+                bool wynik2 = porownaj==porownaj3;
+                cout<<"Porownywanie Wynik1 = porownaj==porownaj2 : "<<(wynik1 == 0 ? "false" : "true")<<" Wynik2 = porownaj==porownaj3 :"<<(wynik2 == 0 ? "false" : "true")<<endl;
+                bool wynik3 = porownaj!=porownaj2;
+                bool wynik4 = porownaj!=porownaj3;
+                cout<<"Porownywanie Wynik3 = porownaj!=porownaj2 : "<<(wynik3 == 0 ? "false" : "true")<<" Wynik4 = porownaj!=porownaj3 :"<<(wynik4 == 0 ? "false" : "true")<<endl;
                 break;
                 }
             case 3: {

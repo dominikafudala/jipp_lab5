@@ -345,6 +345,39 @@ void operator<<(ofstream &file, Matrix &macierz)
     }
 }
 
+//porównywanie ==
+bool Matrix::operator==( Matrix & m )
+{
+ if(row == m.rows() && columns == m.cols()){
+     for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                if(matrix[i][j] == m.get(i, j)){
+                    return true;
+                }else return false;
+            }
+        }     
+ } else return false;  
+}
+
+//nierowność !=
+
+bool Matrix::operator!=( Matrix & m )
+{
+ if(row != m.rows() && columns != m.cols()){
+     for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                if(matrix[i][j] != m.get(i, j)){
+                    return true;
+                }else return false;
+            }
+        }     
+ } else return false;  
+}
+
 /*zapisywanie do pliku*/
 
 void Matrix::store(string filename, string path) noexcept(false)
