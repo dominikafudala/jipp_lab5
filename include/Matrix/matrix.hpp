@@ -25,6 +25,9 @@ class Matrix{
         friend void operator<<(ofstream& file, Matrix &macierz); // operator wyjścia służący do wypisywania macierzy
         bool operator==( Matrix & m );//porównywanie
         bool operator!=( Matrix & m );
+        void operator[](int row_index); // operator do wypisania wiersza 
+        void operator++();
+        void operator--();
         void store(string filename, string path) noexcept(false); // zapisywanie do pliku
         ~Matrix(); // destruktor
 

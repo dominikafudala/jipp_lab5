@@ -8,7 +8,7 @@ int main(){
     while(1){
         cout<<"1 - zaprezentowane operatory: +  -  *  << "<<endl;
         cout<<"2 - zaprezentowane operatory: == != [] "<<endl;
-        cout<<"3 - wczytaj macierz z pliku"<<endl;
+        cout<<"3 - zaprezentowane operatory: ++ --"<<endl;
         cout<<"4 - zakoncz program"<<endl;
 
         int choice = 0;
@@ -65,12 +65,17 @@ int main(){
                 bool wynik3 = porownaj!=porownaj2;
                 bool wynik4 = porownaj!=porownaj3;
                 cout<<"Porownywanie Wynik3 = porownaj!=porownaj2 : "<<(wynik3 == 0 ? "false" : "true")<<" Wynik4 = porownaj!=porownaj3 :"<<(wynik4 == 0 ? "false" : "true")<<endl;
+                porownaj.set(0, 1, 3);
+                porownaj[0];
                 break;
                 }
             case 3: {
-                cout<<"Wczytanie macierzy z pliku msumfile z katalogu biezacego"<<endl;
-                Matrix zpliku("./msumfile"); 
-                zpliku.print();
+                Matrix kwadratowa(3);
+                ++kwadratowa;
+                kwadratowa.print();
+                Matrix kwadratowa2(3);
+                --kwadratowa2;
+                kwadratowa2.print();
                 break;
                 }
             case 4: return 0;

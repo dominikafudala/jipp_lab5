@@ -346,36 +346,97 @@ void operator<<(ofstream &file, Matrix &macierz)
 }
 
 //porównywanie ==
-bool Matrix::operator==( Matrix & m )
+bool Matrix::operator==(Matrix &m)
 {
- if(row == m.rows() && columns == m.cols()){
-     for (int i = 0; i < row; i++)
+    if (row == m.rows() && columns == m.cols())
+    {
+        for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                if(matrix[i][j] == m.get(i, j)){
+                if (matrix[i][j] == m.get(i, j))
+                {
                     return true;
-                }else return false;
+                }
+                else
+                    return false;
             }
-        }     
- } else return false;  
+        }
+    }
+    else
+        return false;
 }
 
 //nierowność !=
 
-bool Matrix::operator!=( Matrix & m )
+bool Matrix::operator!=(Matrix &m)
 {
- if(row != m.rows() && columns != m.cols()){
+    if (row != m.rows() && columns != m.cols())
+    {
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                if (matrix[i][j] != m.get(i, j))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+    }
+    else
+        return false;
+}
+
+//operator [] wypisanie wiersza o indeksie
+void Matrix::operator[](int row_index)
+{
+    if (row_index >= row && row_index < 0)
+    {
+        WrongSize wrong_size;
+        try
+        {
+            throw wrong_size;
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+    }
+    else
+    {
+        for (int i = 0; i < columns; i++)
+        {
+            cout << matrix[row_index][i] << " ";
+        }
+        cout << endl;
+    }
+}
+
+//++
+void Matrix::operator++(){
      for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                if(matrix[i][j] != m.get(i, j)){
-                    return true;
-                }else return false;
+              double val = matrix[i][j] + 1;
+              matrix[i][j] = val;
             }
-        }     
- } else return false;  
+        }
+}
+
+//--
+void Matrix::operator--(){
+     for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+              double val = matrix[i][j] - 1;
+              matrix[i][j] = val;
+            }
+        }
 }
 
 /*zapisywanie do pliku*/
